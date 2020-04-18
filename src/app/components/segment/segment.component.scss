@@ -1,0 +1,16 @@
+ion-segment{
+    --background: #006B3E;
+    height: 48px;
+    font-size: 11px;
+}
+
+ion-segment ion-segment-button{
+    --color: #00BB6C;
+}
+
+.segment-button-checked{
+    --background-checked: #006B3E;
+    --color-checked: #ffffff;
+    font-weight: bold;
+    border-bottom: 3px solid #BED700;
+}

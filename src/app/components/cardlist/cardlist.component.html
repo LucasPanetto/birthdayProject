@@ -1,0 +1,27 @@
+<ion-card>
+  <ion-card-header>
+    <ion-row class="rowCardListHeader">
+      <ion-col size=10 class="textHeader">
+        Aniversariantes do dia
+      </ion-col>
+      <ion-col size=2>
+        <ion-grid>
+          <ion-row class="textData">
+            30
+          </ion-row>
+          <ion-row class="textMonth">
+            TEst
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list lines="none">
+      <ion-item *ngFor="let hero of heroes" class="ion-no-padding">
+        <ion-label>{{hero}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
