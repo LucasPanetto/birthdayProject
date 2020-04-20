@@ -2,7 +2,7 @@
 <ion-content>
   <app-segment></app-segment>
   <app-textinformation></app-textinformation>
-  <app-carddata></app-carddata>
-  <app-cardinput></app-cardinput>
-  <app-cardlist></app-cardlist>
+  <app-carddate (dateEventEmitter)="dateChanged($event)"></app-carddate>
+  <app-cardinput (inputEventEmitter)="inputChanged($event)" [inputText]="inputText"></app-cardinput>
+  <app-cardlist [listBirthdays]="listBirthdays" [date]="date"></app-cardlist>
 </ion-content>

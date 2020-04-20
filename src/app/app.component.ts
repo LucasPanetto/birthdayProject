@@ -12,8 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
 
-  public listBirthdays: any[];
-
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

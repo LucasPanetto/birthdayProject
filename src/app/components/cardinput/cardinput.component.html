@@ -1,7 +1,7 @@
 <ion-card>
-  <ion-card-content class="cardInput">
+  <ion-card-content>
     <ion-row>
-      <ion-input placeholder="Nome do aniversariante"></ion-input>
+      <ion-input placeholder="Nome do aniversariante" [(ngModel)]="inputText" (ngModelChange)="inputChanged()"></ion-input>
     </ion-row>
   </ion-card-content>
 </ion-card>

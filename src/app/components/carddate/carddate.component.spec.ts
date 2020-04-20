@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CarddataComponent } from './carddata.component';
+import { CarddateComponent } from './carddate.component';
 
-describe('CarddataComponent', () => {
-  let component: CarddataComponent;
-  let fixture: ComponentFixture<CarddataComponent>;
+describe('CarddateComponent', () => {
+  let component: CarddateComponent;
+  let fixture: ComponentFixture<CarddateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarddataComponent ],
+      declarations: [ CarddateComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CarddataComponent);
+    fixture = TestBed.createComponent(CarddateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

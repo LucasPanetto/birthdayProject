@@ -1,8 +1,18 @@
-{
-    "birthdays": [
-        {
-            "name": "Lucas",
-            "birthday": "2012-03-19"
-        }
-    ]
-}
+[
+    {
+        "birthday": "2020-04-19",
+        "name": "Lucas"
+    },
+    {
+        "birthday": "2020-04-19",
+        "name": "Jonathan"
+    },
+    {
+        "birthday": "2020-04-12",
+        "name": "Lucas"
+    },
+    {
+        "birthday": "2020-04-19",
+        "name": "Priscila"
+    }
+]

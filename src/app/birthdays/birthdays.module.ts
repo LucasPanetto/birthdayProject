@@ -10,7 +10,7 @@ import { BirthdaysPage } from './birthdays.page';
 import { HeaderComponent } from '../components/header/header.component';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { TextinformationComponent } from '../components/textinformation/textinformation.component';
-import { CarddataComponent } from '../components/carddata/carddata.component';
+import { CarddateComponent } from '../components/carddate/carddate.component';
 import { CardinputComponent } from '../components/cardinput/cardinput.component';
 import { CardlistComponent } from '../components/cardlist/cardlist.component';
 
@@ -21,6 +21,6 @@ import { CardlistComponent } from '../components/cardlist/cardlist.component';
     IonicModule,
     BirthdaysPageRoutingModule
   ],
-  declarations: [BirthdaysPage, HeaderComponent, SegmentComponent, TextinformationComponent, CarddataComponent, CardinputComponent, CardlistComponent]
+  declarations: [BirthdaysPage, HeaderComponent, SegmentComponent, TextinformationComponent, CarddateComponent, CardinputComponent, CardlistComponent]
 })
 export class BirthdaysPageModule { }
