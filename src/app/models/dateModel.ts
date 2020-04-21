@@ -1,4 +1,4 @@
-export class dataJsonModel {
+export class dateJsonModel {
     name: string;
     birthday: Date;
 }

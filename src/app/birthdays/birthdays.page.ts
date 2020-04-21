@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../resources/data.json';
-import { dataJsonModel } from '../models/dataModel.js';
-import { listDateModel } from '../models/listDateModel';
+import { dateJsonModel } from '../models/dateModel.js';
 
 @Component({
   selector: 'app-birthdays',
@@ -9,44 +8,51 @@ import { listDateModel } from '../models/listDateModel';
   styleUrls: ['./birthdays.page.scss'],
 })
 export class BirthdaysPage implements OnInit {
-  public listBirthdaysWithOutFilter: dataJsonModel[] = new Array() as dataJsonModel[];
-  public listBirthdays: dataJsonModel[] = new Array() as dataJsonModel[];
+  public listBirthdaysWithOutFilter: dateJsonModel[] = new Array() as dateJsonModel[];
+  public listBirthdays: dateJsonModel[] = new Array() as dateJsonModel[];
   public date: Date;
   public inputText: string = "";
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     data.forEach(element => {
       this.listBirthdaysWithOutFilter.push({
         name: element.name,
-        birthday: new Date(element.birthday)
-      } as dataJsonModel);
+        birthday: new Date(new Date(element.birthday).toLocaleString("en-US", { timeZone: "Australia/Brisbane" }))
+      } as dateJsonModel);
     });
   }
 
   public dateChanged(param: Date) {
-    this.listBirthdays = new Array() as dataJsonModel[];
+    this.listBirthdays = new Array() as dateJsonModel[];
 
     this.date = (new Date(param));
     this.inputText = "";
 
-    this.listBirthdays = this.listBirthdaysWithOutFilter.filter(x => x.birthday.getMonth() == this.date.getMonth());
+    this.listBirthdays = this.groupBy(this.listBirthdaysWithOutFilter.filter(x => x.birthday.getMonth() == this.date.getMonth()), 'birthday');
   }
 
   public inputChanged(param) {
     this.inputText = param;
     this.date = new Date();
 
-    const listNames = [];
-
-    this.listBirthdaysWithOutFilter.forEach(element => {
-      if (element.name.toUpperCase().search(this.inputText)) {
-        listNames.push(element.name);
-      }
-    });
+    this.listBirthdays = this.groupBy(this.listBirthdaysWithOutFilter.filter(x => x.name.toUpperCase().indexOf(this.inputText.toUpperCase()) >= 0), 'birthday');
   }
 
-  private returnDateMonthYear(x: Date) {
-    return ((x.getUTCMonth() + 1) + "/" + x.getUTCFullYear());
+  private groupBy(colecao, propriedade) {
+    var agrupado = [];
+    colecao.forEach(function (i) {
+      var foiAgrupado = false;
+      agrupado.forEach(function (j) {
+        if (j.Key == i[propriedade].toString()) {
+          j.Elements.push(i);
+          foiAgrupado = true;
+        }
+      });
+      if (!foiAgrupado) agrupado.push({ Key: i[propriedade], Elements: [i] });
+    });
+    return agrupado;
   }
 }
