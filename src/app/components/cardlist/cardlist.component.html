@@ -1,34 +1,42 @@
-<ion-card *ngFor="let item of listBirthdays">
-  <ion-card-header>
-    <ion-row class="rowCardListHeader">
-      <ion-col size=10 class="textHeader">
-        Aniversariantes do dia
-      </ion-col>
-      <ion-col size=2>
-        <ion-grid>
-          <ion-row class="textDay">
-            {{item.Key.getDate()}}
+<ion-grid>
+  <ion-row>
+    <ion-col size-xs="12" size-sm="6" size-lg="4" *ngFor="let item of listBirthdays">
+      <ion-card>
+        <ion-card-header>
+          <ion-row class="rowCardListHeader">
+            <ion-col size=10 class="textHeader">
+              Aniversariantes do dia
+            </ion-col>
+            <ion-col size=2>
+              <ion-grid>
+                <ion-row class="textDay">
+                  {{item.Key.getDate()}}
+                </ion-row>
+                <ion-row class="textMonth">
+                  {{item.Key.toLocaleString('pt-BR', {month: 'short'}) | slice:0:3}}
+                </ion-row>
+              </ion-grid>
+            </ion-col>
           </ion-row>
-          <ion-row class="textMonth">
-            {{item.Key.toLocaleString('pt-BR', {month: 'short'}) | slice:0:3}}
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
-  </ion-card-header>
+        </ion-card-header>
 
-  <ion-card-content>
-    <ion-list lines="none">
-      <ion-item *ngFor="let elemento of item.Elements" class="ion-no-padding">
-        <ion-label>{{elemento.name}}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
-<ion-card *ngIf="!listBirthdays.length > 0">
-  <ion-card-content>
-    <ion-text>
-      <h2 style="text-align: center;">Não há aniversáriantes na {{cause}} escolhida!</h2>
-    </ion-text>
-  </ion-card-content>
-</ion-card>
+        <ion-card-content>
+          <ion-list lines="none">
+            <ion-item *ngFor="let elemento of item.Elements" class="ion-no-padding">
+              <ion-label>{{elemento.name}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col *ngIf="!listBirthdays.length > 0">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>
+            <h2 style="text-align: center;">Não há aniversáriantes para o filtro informado!</h2>
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

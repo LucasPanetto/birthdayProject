@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-segment',
@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./segment.component.scss'],
 })
 export class SegmentComponent implements OnInit {
+  @Output() segmentEventEmmiter = new EventEmitter();
+  public segmentValue = 1;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  segmentChange() {
+    this.segmentEventEmmiter.emit(this.segmentValue);
+  }
 
 }

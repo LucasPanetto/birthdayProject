@@ -9,13 +9,11 @@ import { dateJsonModel } from 'src/app/models/dateModel';
 
 export class CardlistComponent implements OnInit {
   @Input() listBirthdays: dateJsonModel[];
-  public cause: string = "";
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.listBirthdays);
   }
 
 
